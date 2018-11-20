@@ -75,7 +75,6 @@ spend('boba',dataset)
 
 def get_amount(dataset,str1,i=0):
 
-
     Keys=listkey(dataset)
 
     if i==len(Keys):
@@ -85,7 +84,6 @@ def get_amount(dataset,str1,i=0):
     for j in dataset[Keys[i]]["route"].keys():
         if j == "str1":
             x+=1
-
 
     return x+get_amount(dataset,str1,i+1)
 print("total in street",get_amount(dataset,"str1"))
