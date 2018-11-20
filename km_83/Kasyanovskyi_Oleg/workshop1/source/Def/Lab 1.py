@@ -1,2 +1,2 @@
-from km_83.Kasyanovskyi_Oleg.workshop1.source.Laba_1.Laba_1 import
+from km_83.Kasyanovskyi_Oleg.workshop1.source.packagefunc.lib import sqr
 print(sqr(3))
