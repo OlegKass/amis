@@ -141,14 +141,33 @@ try:
             name="cities"
         )
 
-        fig = tools.make_subplots(rows=1, cols=2)
-
-        fig.append_trace(DATA_1, 1, 1)
-
-        fig.append_trace(DATA_3, 1, 2)
+        fig = {"data": [
+            {
+                "x": list(data_1.keys()),
+                "y": list(data_1.values()),
+                "type": "bar",
+                "name": "P1",
+            },
+            {
+                "x": list(data_3.keys()),
+                "y": list(data_3.values()),
+                "type": "bar",
+                "name": "P1",
+                "xaxis": "x2",
+                "yaxis": "y2"
+            },
+            {
+                "labels": list(data_2.keys()),
+                "values": list(data_2.values()),
+                "type": "pie",
+                "name": "P2",
+                "textinfo": "none",
+                'domain': {'x': [0, 0.45], 'y': [0.55, 1]},
+            }
+        ], "layout": go.Layout(
+            xaxis=dict(domain=[0, 0.45]), yaxis=dict(domain=[0, 0.45]),
+            xaxis2=dict(domain=[0.55, 1]), yaxis2=dict(domain=[0, 0.45], anchor='x2'))}
 
         pl.offline.plot(fig, filename='Bars.html')
-        pl.offline.plot([DATA_2], filename='Pie.html')
-
 except IOError:
     print(1)
